@@ -22,7 +22,7 @@ namespace SocietyManagementSystem.Controllers
         // GET: Registration
 
         //Set the base url
-        string Baseurl = "https://localhost:7071/";
+        string Baseurl = "https://society-management-api.azurewebsites.net/";
         EventAndRegistrationParent eventAndRegistrationParent = new EventAndRegistrationParent();
 
         //GET REQUEST.
@@ -76,7 +76,7 @@ namespace SocietyManagementSystem.Controllers
 
                 //Sending request to find web api REST service resource GetAllEmployees using HttpClient
 
-                HttpResponseMessage Res = await httpClient.PostAsync("https://localhost:7071/api/Registration", content);
+                HttpResponseMessage Res = await httpClient.PostAsync("https://society-management-api.azurewebsites.net/api/Registration", content);
                 if (Res.IsSuccessStatusCode)
                 {
                     var apiResponse = Res.Content.ReadAsStringAsync().Result;

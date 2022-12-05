@@ -17,7 +17,7 @@ namespace SocietyManagementSystem.Controllers
         
 
         //Set the base url
-        string Baseurl = "https://localhost:7071/";
+        string Baseurl = "https://society-management-api.azurewebsites.net/";
         public async Task<ActionResult>  Index()
         {
 

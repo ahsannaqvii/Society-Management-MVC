@@ -11,7 +11,7 @@ namespace SocietyManagementSystem.Controllers
 {
     public class LoginController : Controller
     {
-        string Baseurl = "https://localhost:7071/";
+        string Baseurl = "https://society-management-api.azurewebsites.net/";
         // GET: Login
         public ActionResult Login()
         {
@@ -19,6 +19,9 @@ namespace SocietyManagementSystem.Controllers
 
             return View(login);
         }
+        
+       
+
 
         [HttpPost]
         public async Task<ActionResult> Login(Login login)
@@ -31,10 +34,8 @@ namespace SocietyManagementSystem.Controllers
                 var jsonItem = JsonConvert.SerializeObject(login);
                 var content = new StringContent(jsonItem, Encoding.UTF8, "application/json");
 
-                //Sending request to find web api REST service resource GetAllEmployees using HttpClient
 
                 HttpResponseMessage Res = await httpClient.PostAsync("api/Student/Login/?", content);
-
                 if (Res.StatusCode.ToString() =="NotFound")
                 {
                     //var apiResponse = Res.Content.ReadAsStringAsync().Result;
